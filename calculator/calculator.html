@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>casio</title>
+    <style>
+        h2{
+            color: blue;
+            text-align: center;
+            font-size: xx-large;
+        }
+        #casio {
+            width: 380px;
+            border: 1px solid black;
+            box-shadow: 10px 10px 10px;
+            margin: auto;
+            border-radius: 20px;
+            padding: 20px;
+            height: 580px;
+            background-color: azure;
+
+        }
+        #display{
+            border: 1px solid black;
+            height: 100px;
+            border-radius: 20px;
+            background-color: beige;
+            box-shadow: 4px 5px 6px;
+            display: flex;
+            align-items: center;
+            font-size: 30px;
+            padding-left: 20px;
+            
+        }
+        #keyboard {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(4,80%);
+            gap: 10px;
+            margin-top: 20px;
+        }
+        #keyboard button{
+            border: 1px solid black;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            font-size: 20px;
+            background-color: orange;
+            box-shadow: 2px 2px 5px;
+        }
+        #keyboard button:hover{
+            background-color:cadetblue;
+            color: white;
+        }
+        #keyboard button.keys{
+            background-color: black;
+            color: white;
+        }
+        #keyboard button.keys:hover{
+            color: black;
+            background-color:aqua;
+        }
+        #keyboard button.set{
+            color: white;
+            background-color: red;
+        }
+        #keyboard button.set:hover{
+            color: black;
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h2>"PRANEETH'S CASIO"</h2>
+    <div id="casio">
+        <div id="display"></div>
+        <div id="keyboard">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button class="keys">*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button class="keys">+</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button class="keys">-</button>
+            <button class="set">AC</button>
+            <button>0</button>
+            <button class="keys">/</button>
+            <button class="keys">=</button>
+        </div>  
+    </div>
+</body>
+</html>
+
+
+<script>
+    let keys=document.querySelectorAll('#keyboard>button');
+    let bag='';
+
+    for (let i=0;i<keys.length;i++){
+        keys[i].addEventListener('click',mycasio);
+    }
+     function mycasio(){
+        let value=event.target.innerText;
+        if (value=='AC'){
+            bag ='';
+            document.querySelector('#display').innerText=bag;
+
+        }
+        else if (value=='='){
+            document.querySelector('#display').innerText=eval(bag);
+        }
+        else{
+            bag+=value;
+            document.querySelector('#display').innerText=bag;
+        }
+
+    }
+
+</script>
